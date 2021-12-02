@@ -378,7 +378,7 @@ textarea {
 /*----------------------------------------------------------------
     DOCUMENT CSS START
 */
-  
+
 /* Box sizing rules */
 html {
     box-sizing: border-box;
@@ -393,7 +393,7 @@ html {
 body {
     font-family: 'Roboto', sans-serif;
     font-style: normal;
-    font-weight: normal;
+    font-weight: 400;
     font-size: 18px;
     line-height: 21px;
     display: flex;
@@ -491,11 +491,20 @@ body {
     width: 21px;
     height: 21px;
     background: url('../img/box-icon.svg') no-repeat;
-
+    z-index: 2;
 }
 
-.item__check:checked:before {
-    background: url('../img/checkbox-icon.svg') no-repeat;
+.item__check:checked:after {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    content: ' ';
+    display: block;
+    width: 15px;
+    height: 15px;
+    background: #C4C4C4;
+    border-radius: 100%;
+    z-index: 3;
 }
 
 /*----------------------------------------------------------------
