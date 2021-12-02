@@ -415,6 +415,7 @@ body {
     height: 688px;
     background: white;
     padding: 25px 8px;
+    border-radius: 6px;
 }
 
 .to-do__deck input{
