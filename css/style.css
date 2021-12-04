@@ -409,7 +409,7 @@ body {
     TO-DO LIST CSS START
 */
 
-.to-do__deck {
+.to-do {
     margin: auto;
     width: 476px;
     height: 688px;
@@ -418,21 +418,18 @@ body {
     border-radius: 6px;
 }
 
-.to-do__deck input{
+.to-do input{
     border: 0;
 }
 
-.to-do__container {
-
-}
-
-.container__head {
+.container .head {
     display: block;
     text-align: center;
     margin-bottom: 12px;
 }
 
-.item {
+.container .item {
+    margin: 0;
     width: 100%;
     min-height: 45px;
     background: #FFFFFF;
@@ -444,23 +441,23 @@ body {
     margin-bottom: 8px;
 }
 
-.item.checked {
+.container .item.checked {
     background: #F4F4F4;
 }
 
-.item.add {
+.container .item.add {
     padding-left: 12px;
 }
 
-.item:last-child {
+.container .item:last-child {
     margin-bottom: 12px;
 }
 
-.item__text {
+.container .item .text{
     width: 100%;
 }
 
-.item__button {
+.container .item [type="button"] {
     content: ' ';
     background: url('../img/close-icon.svg') no-repeat;
     background-size: cover;
@@ -471,41 +468,33 @@ body {
     right: 15px;
 }
 
-.item__button.add {
+.container .item.add [type="button"]{
     transform: rotate(45deg);
     width: 13px;
     height: 13px;
 }
 
-.item__check {
+.container .item [type="checkbox"] {
     position: absolute;
-    width: 0;
-    top: 14px;
-    left: 14px;
-    z-index: 1;
-    opacity: 1;
-}
-
-.item__check::before {
-    content: '';
-    display: block;
     width: 21px;
     height: 21px;
-    background: url('../img/box-icon.svg') no-repeat;
-    z-index: 2;
+    top: 14px;
+    left: 14px;
+    border: 1px solid #989898;
+    border-radius: 100%;
+    -webkit-appearance: none;
+    appearance: none;
+    display: flex;
 }
 
-.item__check:checked:after {
-    position: absolute;
-    top: 3px;
-    left: 3px;
+.container .item [type="checkbox"]:checked:after {
+    margin: auto;
     content: ' ';
     display: block;
     width: 15px;
     height: 15px;
     background: #C4C4C4;
     border-radius: 100%;
-    z-index: 3;
 }
 
 /*----------------------------------------------------------------

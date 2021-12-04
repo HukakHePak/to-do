@@ -11,20 +11,22 @@
     <title>To-do</title>
 </head>
 <body>
-    <div class="to-do__deck">
-        <div class="to-do__container">
-            <span class="container__head">HIGH</span>
-            <div class="item add">
-                <input type="text" class="item__text" placeholder="Добавить важных дел">
-                <input type="button" class="item__button add">
-            </div>
-            <div class="item">
-                <input type="checkbox" class="item__check">
-                <label class="item__text">Вот вам и супер интересная тема. 
-                    Вы наверняка заметили что ваши файлы с кодом становятся все объемнее, что хочется вынести некоторые вещи куда-то за пределы основной программы.</label>
-                <input type="button" class="item__button">
-            </div>
+    <div class="to-do">
+        <div class="container">
+            <span class="head">HIGH</span>
+            <form class="item add">
+                <input type="text" placeholder="Добавить важных дел">
+                <input type="button">
+            </form>
+            <form class="item view">
+                <input type="checkbox">
+                <span class="text">Вот вам и супер интересная тема. 
+                    Вы наверняка заметили что ваши файлы с кодом становятся все объемнее, что хочется вынести некоторые вещи куда-то за пределы основной программы.</span>
+                <input type="button">
+            </form>
         </div>
     </div>
+    <script type="module" src="./js/view.js"></script>
+    <script type="module" src="./js/main.js"></script>
 </body>
 </html>
