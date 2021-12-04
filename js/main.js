@@ -1,13 +1,15 @@
 import { FORMS } from "./view.js";
-import { MAX_CONTAINER_HIGH  } from "./view.js";
+import { CONTAINERS } from "./view.js";
 
 export function createNewTask(form) {
     let input = form.firstElementChild;
-    let value = input.value;
+    let value = input.value.trim();
     
-    if(checkMaxHigh(form.parentNode) && value != '') {   
+    let rightSizeAndNotEmpty = form.children.length < CONTAINERS.maxCount && value.length;
+
+    if(rightSizeAndNotEmpty) {   
         let task = FORMS.task.cloneNode(true);
-        task.children[1].textContent = checkOversize(value, 26);
+        task.children[1].textContent = value;
     
         task.onsubmit = () => { 
             task.remove(); 
@@ -23,24 +25,14 @@ export function createNewTask(form) {
     return false;
 }
 
-function checkMaxHigh(form) {
-    return form.children.length < MAX_CONTAINER_HIGH;
-}
+FORMS.add.onsubmit = () => { 
+    createNewTask(FORMS.add); 
+    return false; 
+};
 
-function checkOversize(str, max) {
-    let counter = 0;
-    let allcount = 0;
+CONTAINERS.low.children[1].onsubmit = () => {
+    createNewTask(CONTAINERS.low.children[1]);
+    return false;
+};
 
-    for(let w of str) {
-        counter++;
-        allcount++;
-        if(w == ' ') {
-            counter = 0;
-        }
-        if(counter > max) 
-            return str.slice(0, allcount);
-    }
-    return str;
-}
-
-
+console.log(CONTAINERS.low);

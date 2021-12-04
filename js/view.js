@@ -1,27 +1,20 @@
-import { createNewTask } from "./main.js";
+const mainContainer = document.querySelector('.container');
 
-export const HIGH_CONTAINER = document.querySelector('.container');
-export const MAX_CONTAINER_HIGH = 20;
+export const CONTAINERS = {
+    high: mainContainer,
+    low: mainContainer.cloneNode(true),
+    maxCount: 20
+}
 
 export const FORMS = {
-    name: HIGH_CONTAINER.firstElementChild,
-    add: HIGH_CONTAINER.children[1],
-    task: HIGH_CONTAINER.lastElementChild,
+    name: CONTAINERS.high.firstElementChild,
+    add: CONTAINERS.high.children[1],
+    task: CONTAINERS.high.lastElementChild,
 }
-HIGH_CONTAINER.lastElementChild.remove();
 
-FORMS.add.onsubmit = () => { 
-    createNewTask(FORMS.add); 
-    return false; 
-};
+CONTAINERS.high.lastElementChild.remove();
+CONTAINERS.low.lastElementChild.remove();
+CONTAINERS.low.firstElementChild.textContent = "LOW";
 
+CONTAINERS.high.after(CONTAINERS.low);
 
-export const LOW_CONTAINER = HIGH_CONTAINER.cloneNode(true);
-LOW_CONTAINER.firstElementChild.textContent = "LOW";
-
-LOW_CONTAINER.children[1].onsubmit = () => {
-    createNewTask(LOW_CONTAINER.children[1]);
-    return false;
-};
-
-HIGH_CONTAINER.after(LOW_CONTAINER);
