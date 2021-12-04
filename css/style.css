@@ -440,7 +440,7 @@ body {
     position: relative;
     padding: 12px 45px;
     margin-bottom: 8px;
-   
+    z-index: 2;
 }
 
 .container .item:hover,  .container .item:focus{
@@ -479,6 +479,7 @@ body {
     top: 15px;
     right: 15px;
     transition: 0.5s;
+    z-index: 3;
 }
 
 .container .item [type="submit"]:hover {
@@ -489,6 +490,7 @@ body {
     transform: rotate(45deg);
     width: 13px;
     height: 13px;
+    top: 17px;
 }
 
 .container .item.add [type="submit"]:hover {
