@@ -11,4 +11,3 @@ export const CONTAINERS = {
 
 CONTAINERS.low.firstElementChild.textContent = "LOW";
 CONTAINERS.high.after(CONTAINERS.low);
-

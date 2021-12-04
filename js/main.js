@@ -9,7 +9,7 @@ export function addNewTask() {
         task.children[1].textContent = value;
         task.onsubmit = deleteTask;
         task.onchange = changeStatus;
-        this.after(task);
+        this.after(task);   
     }  
     input.value = '';
     return false;
@@ -29,5 +29,3 @@ for(let item in CONTAINERS) {
     let form = CONTAINERS[item].children[1];
     form.onsubmit = addNewTask;
 }
-
-
