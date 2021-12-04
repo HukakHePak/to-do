@@ -1,6 +1,7 @@
 import { createNewTask } from "./main.js";
 
 export const HIGH_CONTAINER = document.querySelector('.container');
+export const MAX_CONTAINER_HIGH = 20;
 
 export const FORMS = {
     name: HIGH_CONTAINER.firstElementChild,
