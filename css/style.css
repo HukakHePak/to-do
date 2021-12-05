@@ -423,13 +423,17 @@ body {
     border: 0;
 }
 
-.container .head {
+.tasks {
+    margin-bottom: 12px;
+}
+
+.tasks__head {
     display: block;
     text-align: center;
     margin-bottom: 12px;
 }
 
-.container .item {
+.tasks .task {
     margin: 0;
     width: 100%;
     min-height: 45px;
@@ -443,33 +447,29 @@ body {
     z-index: 2;
 }
 
-.container .item:hover,  .container .item:focus{
+.tasks .task:hover,  .tasks .task:focus{
     transform: scale(1.02);
     transition: 0.1s;
 }
 
-.container .item.checked {
+.tasks .task.checked {
     background: #F4F4F4;
 }
 
-.container .item.add {
+.tasks .task.add {
     padding-left: 12px;
 }
 
-.container .item:last-child {
-    margin-bottom: 12px;
-}
-
-.container .item [type="text"] {
+.tasks [type="text"] {
     width: 100%;
 }
 
-.container .item .text{
+.tasks .text{
     width: 100%;
     word-wrap: break-word;
 }
 
-.container .item [type="submit"] {
+.tasks [type="submit"] {
     content: ' ';
     background: url('../img/close-icon.svg') no-repeat;
     background-size: cover;
@@ -482,22 +482,22 @@ body {
     z-index: 3;
 }
 
-.container .item [type="submit"]:hover {
+.tasks [type="submit"]:hover {
     transform: rotate(180deg);
 }
 
-.container .item.add [type="submit"]{
+.tasks .add [type="submit"]{
     transform: rotate(45deg);
     width: 13px;
     height: 13px;
     top: 17px;
 }
 
-.container .item.add [type="submit"]:hover {
+.tasks .add [type="submit"]:hover {
     transform: rotate(225deg);
 }
 
-.container .item [type="checkbox"] {
+.tasks [type="checkbox"] {
     position: absolute;
     width: 21px;
     height: 21px;
@@ -510,7 +510,7 @@ body {
     display: flex;
 }
 
-.container .item [type="checkbox"]:checked:after {
+.tasks [type="checkbox"]:checked:after {
     margin: auto;
     content: ' ';
     display: block;
