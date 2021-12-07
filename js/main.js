@@ -1,18 +1,24 @@
 import { ADD_FORMS, TASK_TEMPLATE } from "./view.js";
 
-export function addNewTask() {
-    let input = this.firstElementChild;
-    let newValue = input.value.trim();
-    if(newValue.length) {
-        let newTask = TASK_TEMPLATE.cloneNode(true);
-        let taskValue = newTask.firstElementChild;
-        taskValue.textContent = newValue;
-        newTask.onsubmit = deleteTask;
-        newTask.onchange = changeStatus;
-        let tasksContainer = this.nextElementSibling;
-        tasksContainer.prepend(newTask);   
-    }  
-    input.value = '';
+function addNewTask() {
+    try {
+        let input = this.firstElementChild;
+        let newValue = input.value.trim();
+        if(newValue.length) {
+            let newTask = TASK_TEMPLATE.cloneNode(true);
+            let taskValue = newTask.firstElementChild;
+            taskValue.textContent = newValue;
+            newTask.onsubmit = deleteTask;
+            newTask.onchange = changeStatus;
+            let tasksContainer = this.nextElementSibling;
+            tasksContainer.prepend(newTask);   
+        }
+    }
+    catch(err) {
+        console.log(err);
+    }
+      
+    this.reset()
     return false;
 }
 
@@ -35,6 +41,11 @@ function deleteTask() {
 }
 
 for(let form in ADD_FORMS) {
-    let addform = ADD_FORMS[form];
-    addform.onsubmit = addNewTask;
+    try {
+        let addform = ADD_FORMS[form];
+        addform.onsubmit = addNewTask;
+    }
+    catch(err) {
+        console.log(err);
+    }
 }

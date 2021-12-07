@@ -1,15 +1,23 @@
 const highTasks = document.querySelector('.tasks');
 export const TASK_TEMPLATE = highTasks.querySelector('.view');
-
-TASK_TEMPLATE.remove();
-
-const lowTasks = highTasks.cloneNode(true);
-const headname = lowTasks.querySelector('.tasks__head');
-headname.textContent = 'LOW';
-
-highTasks.after(lowTasks);
-
 export const ADD_FORMS = {
-    high: highTasks.querySelector('.add'),
-    low: lowTasks.querySelector('.add'),
+    high: null,
+    low: null,
 }
+
+let lowTasks = null;
+let headname = null;
+
+try {
+    TASK_TEMPLATE.remove();
+    lowTasks = highTasks.cloneNode(true);
+    headname = lowTasks.querySelector('.tasks__head');
+    headname.textContent = 'LOW';
+    highTasks.after(lowTasks);
+    ADD_FORMS.high = highTasks.querySelector('.add'),
+    ADD_FORMS.low =  lowTasks.querySelector('.add');
+}
+catch (err) {
+    console.log(err);
+}
+
