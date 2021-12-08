@@ -16,10 +16,7 @@ function addNewTask() {
     }
     catch(err) {
         console.log(err);
-    }
-
-    console.log(updateList());
-      
+    } 
     this.reset()
     return false;
 }
